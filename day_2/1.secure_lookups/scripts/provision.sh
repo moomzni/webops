@@ -2,7 +2,7 @@
 
 if [ ! -e /etc/bootstrapped ]; then
 
-  apt-get update && apt-get install -y wget make ruby-1.9.1-dev rubygems
+  apt-get update && apt-get install -y wget make ruby1.9.1-dev rubygems
 
   # set version of ruby to 1.9.1
 
