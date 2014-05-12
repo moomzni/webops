@@ -1,8 +1,9 @@
 node default {
 
   case $::hostname {
-    node1: { include nginx }
-    node2: { include apache }
+    node1   : { include nginx }
+    node2   : { include apache }
+    default : { }
   }
 
   case $::kainos_database_type {
