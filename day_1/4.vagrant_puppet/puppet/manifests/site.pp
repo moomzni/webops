@@ -1,3 +1,8 @@
 node default {
-  package { 'nginx-full' : ensure => 'latest', }
+
+  package { [ 'zip', 'nginx-full', 'vim', ] :
+    ensure   => latest,
+    provider => apt,
+  }
+
 }
