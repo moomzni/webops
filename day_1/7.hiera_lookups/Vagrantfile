@@ -5,7 +5,6 @@ VAGRANTFILE_API_VERSION = "2"
 
 hosts = [
   { name: 'node1', ip_address: "192.168.99.10", memory: "256", cpus: "1", script: "./scripts/provision.sh" },
-  { name: 'node2', ip_address: "192.168.99.11", memory: "512", cpus: "2", script: "./scripts/provision.sh" }
 ]
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
