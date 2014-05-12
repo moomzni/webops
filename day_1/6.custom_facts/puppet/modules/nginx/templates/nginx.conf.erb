@@ -1,5 +1,5 @@
 user www-data;
-worker_processes 2;
+worker_processes <%= @processorcount %>;
 pid /var/run/nginx.pid;
 
 events {
