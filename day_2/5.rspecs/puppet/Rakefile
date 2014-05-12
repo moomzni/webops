@@ -1,0 +1,18 @@
+require 'puppet-lint'
+require 'parallel_tests'
+require 'parallel_tests/cli'
+require 'rspec/core/rake_task'
+
+HERE = File.expand_path(File.dirname(__FILE__))
+
+desc "Run rspecs"
+task :spec do
+  matched_files = FileList['**/*_spec.rb']
+  cli_args = ['-t', 'rspec']
+  cli_args.concat(matched_files)
+
+  $stderr.puts '---> rspec:tests:parallel'
+  ParallelTest::CLI.run(cli_args)
+end
+
+task :default => [:spec]
