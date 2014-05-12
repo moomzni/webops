@@ -6,9 +6,9 @@ node default {
     default : { }
   }
 
-  case $::kainos_database_type {
-    mongodb:        { package { 'mongodb' : ensure => 'latest', } }
-    /^postgresql$/: { package { 'postgresql-9.1' : ensure => 'latest', } }
-    default:        { }
-  }
+  # case $::kainos_database_type {
+  #   mongodb:        { package { 'mongodb' : ensure => 'latest', } }
+  #   /^postgresql$/: { package { 'postgresql-9.1' : ensure => 'latest', } }
+  #   default:        { }
+  # }
 }

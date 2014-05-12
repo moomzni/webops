@@ -1,5 +1,7 @@
 class nginx {
-  package { 'nginx-full' :
-    ensure => 'latest',
-  }
+
+  include nginx::package, nginx::config, nginx::service
+
+  Class['nginx::package'] -> Class['nginx::config'] ~> Class['nginx::service']
+
 }
