@@ -1,5 +1,7 @@
 class apache {
-  package { 'apache2' :
-    ensure => 'latest',
-  }
+
+  include apache::package, apache::config, apache::service
+
+  Class['apache::package'] -> Class['apache::config'] ~> Class['apache::service']
+
 }
