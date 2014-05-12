@@ -1,7 +1,9 @@
 class nginx::package {
 
+  $version = hiera('nginx_version')
+
   package { 'nginx' :
-    ensure   => 'latest',
+    ensure   => $version,
     provider => apt,
   }
 
