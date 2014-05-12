@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+hosts = [
+  { name: 'node1', ip_address: "192.168.99.10", memory: "256", cpus: "1", script: "./scripts/provision.sh" },
+]
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "precise64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+  hosts.each do |host|
+    config.vm.define host[:name] do |host_config|
+      host_config.vm.hostname = host[:name]
+      host_config.vm.network :private_network, ip: host[:ip_address], netmask: "255.255.255.0"
+      host_config.vm.provider :virtualbox do |vb|
+        modifyvm_args = ["modifyvm", :id]
+        modifyvm_args << "--name" << host[:name]
+        modifyvm_args << "--memory" << host[:memory]
+        modifyvm_args << "--cpus" << host[:cpus]
+        vb.customize(modifyvm_args)
+        vb.gui = false
+      end
+      host_config.vm.provision :shell, :path => host[:script]
+    end
+  end
+end

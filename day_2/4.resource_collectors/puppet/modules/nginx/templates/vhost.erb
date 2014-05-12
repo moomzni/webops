@@ -1,0 +1,11 @@
+server {
+  listen <%= @port %>;
+  server_name <%= @servername %>;
+
+  access_log /var/log/nginx/<%= @vhost_name %>-access.log;
+  error_log /var/log/nginx/<%= @vhost_name %>-error.log;
+
+  allow all;
+
+<%= @content %>
+}

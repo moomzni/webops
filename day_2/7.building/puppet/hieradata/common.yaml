@@ -1,0 +1,7 @@
+---
+
+http_port : 80
+ssh_port  : 22
+
+nginx_workers : 2
+nginx_version : '1.1.19-1ubuntu0.6'
