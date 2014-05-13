@@ -4,7 +4,7 @@ node default {
 
   nginx::vhost {'website-1' :
     port    => '80',
-    content => '  root /var/www/;'
+    content => 'root /var/www/;'
   }
 
 }
