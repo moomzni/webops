@@ -1,0 +1,4 @@
+---
+
+nginx_http     : 80
+jenkins_port   : 8080
