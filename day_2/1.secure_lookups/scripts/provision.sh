@@ -17,7 +17,7 @@ if [ ! -e /etc/bootstrapped ]; then
   gem install hiera-eyaml
 
   # Create keys for encryption
-  cd /etc/puppet && eyaml createkeys -q && chmod 550 keys && chmod 440 ./keys/*
+  cd /etc/puppet && eyaml createkeys -q && chmod 550 keys && chmod 440 ./keys/* && chown -R root:root /etc/puppet
 
   touch /etc/bootstrapped
 fi
