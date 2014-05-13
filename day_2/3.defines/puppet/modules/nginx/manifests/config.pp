@@ -19,6 +19,9 @@ class nginx::config {
     recurse => true,
     purge   => true,
     force   => true,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
     require => File['/etc/nginx'],
   }
 
