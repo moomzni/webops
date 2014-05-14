@@ -22,7 +22,11 @@ if [ ! -e /etc/bootstrapped ]; then
     ;;
   esac
 
-  apt-get update && apt-get install -y wget
+  apt-get update && apt-get install -y wget make ruby1.9.1-dev rubygems
+
+  # set version of ruby to 1.9.1
+
+  update-alternatives --set ruby /usr/bin/ruby1.9.1 && update-alternatives --set gem /usr/bin/gem1.9.1
 
   cd /tmp && wget -nc -nv http://apt.puppetlabs.com/puppetlabs-release-precise.deb
   dpkg -i puppetlabs*.deb
