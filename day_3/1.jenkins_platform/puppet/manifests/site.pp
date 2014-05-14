@@ -1,6 +1,6 @@
 node default {
 
-  package { [ 'curl', 'vim', 'make' ] : ensure => latest, }
+  package { [ 'curl', 'vim', 'make', 'git' ] : ensure => latest, }
 
   case $::kainos_class {
     nginx   : {
