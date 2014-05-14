@@ -2,3 +2,4 @@ source "http://rubygems.org"
 
 gem "librarian-puppet", "1.0.2"
 gem "fpm"
+gem "puppet"
