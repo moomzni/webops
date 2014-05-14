@@ -20,10 +20,16 @@ node default {
         listen_ip   => '*',
         listen_port => hiera('nginx_http'),
         access_log  => '/var/log/nginx/jenkins-access.log',
-        error_log  => '/var/log/nginx/jenkins-error.log',
+        error_log   => '/var/log/nginx/jenkins-error.log',
       }
 
     }
-    jenkins : { include jenkins, jenkins::master }
+    jenkins : {
+
+      include jenkins, jenkins::master
+
+      package { ['fpm','librarian-puppet'] : ensure => latest, provider => gem, }
+
+    }
   }
 }
