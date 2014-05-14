@@ -1,6 +1,6 @@
 node default {
 
-  package { [ 'curl', 'vim' ] : ensure => latest, }
+  package { [ 'curl', 'vim', 'make' ] : ensure => latest, }
 
   case $::kainos_class {
     nginx   : {
@@ -28,7 +28,7 @@ node default {
 
       include jenkins, jenkins::master
 
-      package { ['fpm','librarian-puppet'] : ensure => latest, provider => gem, }
+      package { ['fpm','librarian-puppet'] : ensure => latest, provider => gem, require => Package['make'] }
 
     }
   }
